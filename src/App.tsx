@@ -14,10 +14,16 @@ function App() {
     });
   };
 
+  const onDeleteTodo = (id: string) => {
+    setTodos((currentState) => {
+      return currentState.filter(todo => todo.id !== id);
+    });
+  };
+
   return (
     <>
-      <NewTodo onAddTodo={onAddTodo} />
-      <Todos items={todos} />
+      <NewTodo onAddTodo={onAddTodo}  />
+      <Todos items={todos} onDeleteTodo={onDeleteTodo} />
     </>
   );
 }
